@@ -1,0 +1,105 @@
+
+.btn-default {
+    background-color: brown;
+    color: #252830;
+    border: 1px solid #1997c6;
+    padding: 5px 50px;
+    border-radius: 2px;
+}
+.btn-default:hover {
+    color: #fff;
+    background-color: #ac2925;
+    /*border-color: #ac2925;*/
+}
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus {
+    color: #fff;
+    background-color: #82121e;
+    border-color: #1997c6;
+}
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    background-image: none;
+}
+
+.btndiv {
+    float:right;
+    padding-right: 20px;
+    padding-top: 5px
+}
+
+li{
+    display:block;
+    width:inherit;
+    word-break : break-all;
+    word-wrap: break-word;
+}
+
+.detail {
+    font-size: 100%;
+    letter-spacing: .15em;
+    color: #1997c6;
+    padding-bottom: 30px;
+}
+
+.instance {
+    padding-top: 30px;
+    width: 80px;
+    height: 110px;
+}
+
+.activeinstance {
+    background-color: #1ca8dd;
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: #293A46;
+}
+
+.deactiveinstance {
+    padding: 3px 6px;
+    border-radius: 3px;
+    cursor:pointer;
+}
+
+#preloader5{
+    position:relative;
+    width:40px;
+    height:40px;
+    background:#1997c6;
+    border-radius:50px;
+    animation: preloader_5 3s infinite linear;
+}
+#preloader5:after{
+    position:absolute;
+    width:80px;
+    height:80px;
+    border-top:10px solid #9b59b6;
+    border-bottom:10px solid #9b59b6;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-radius:50px;
+    content:'';
+    top:-20px;
+    left:-20px;
+    animation: preloader_5_after 3s infinite linear;
+}
+@keyframes preloader_5 {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);background:#2ecc71;}
+    100% {transform: rotate(360deg);}
+}
+@keyframes preloader_5_after {
+    0% {border-top:10px solid #2ecc71;border-bottom:10px solid #2ecc71;}
+    50% {border-top:10px solid #1997c6;border-bottom:10px solid #1997c6;}
+    100% {border-top:10px solid #2ecc71;border-bottom:10px solid #2ecc71;}
+}
+
+

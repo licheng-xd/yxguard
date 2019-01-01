@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yxguard</artifactId>
+        <groupId>com.netease.yixin.yxguard</groupId>
+        <version>1.0.8</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.netease.yixin.yxguard.demo</groupId>
+    <artifactId>yxguard-demo</artifactId>
+    <packaging>jar</packaging>
+    <name>yxguard-demo</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.netease.yixin.yxguard</groupId>
+            <artifactId>yxguard-client</artifactId>
+            <version>${yxguard.version}</version>
+        </dependency>
+    </dependencies>
+</project>

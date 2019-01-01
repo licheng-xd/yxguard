@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.netease.yixin.yxguard</groupId>
+    <artifactId>yxguard</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.8</version>
+    <modules>
+        <module>yxguard-server</module>
+        <module>yxguard-client</module>
+        <module>yxguard-demo</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <curator.version>2.9.0</curator.version>
+        <yxguard.version>1.0.8</yxguard.version>
+        <project.dist.repo.release.id>artifactory</project.dist.repo.release.id>
+        <project.dist.repo.release.name> Netease Repository </project.dist.repo.release.name>
+        <project.dist.repo.release.url>
+            http://mvn.hz.netease.com/artifactory/libs-releases
+        </project.dist.repo.release.url>
+        <project.dist.repo.snapshot.id>snapshots</project.dist.repo.snapshot.id>
+        <project.dist.repo.snapshot.name> Netease Snaptshot Repository
+        </project.dist.repo.snapshot.name>
+        <project.dist.repo.snapshot.url>
+            http://mvn.hz.netease.com/artifactory/libs-snapshots
+        </project.dist.repo.snapshot.url>
+    </properties>
+
+    <distributionManagement>
+        <!-- repository for released products -->
+        <repository>
+            <id>${project.dist.repo.release.id}</id>
+            <name>${project.dist.repo.release.name}</name>
+            <url>${project.dist.repo.release.url}</url>
+        </repository>
+        <!-- repository for products' snapshotelopment snapshots -->
+        <snapshotRepository>
+            <id>${project.dist.repo.snapshot.id}</id>
+            <name>${project.dist.repo.snapshot.name}</name>
+            <url>${project.dist.repo.snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.12</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.12</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.44</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

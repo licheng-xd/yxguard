@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context   
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <context:component-scan base-package="com.netease.yxguard.server"/>
+
+    <!-- configs -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="1"/>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:/yxguard-server.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="config" class="com.netease.yxguard.config.GuardConfig">
+        <property name="zkAddr" value="${zkAddr}"/>
+        <property name="basePath" value="${basePath}"/>
+        <property name="sessionTimeoutMs" value="${sessionTimeoutMs}"/>
+        <property name="connectionTimeoutMs" value="${connectionTimeoutMs}"/>
+        <property name="baseSleepTimeMs" value="${baseSleepTimeMs}"/>
+        <property name="maxRetries" value="${maxRetries}"/>
+    </bean>
+
+    <bean id="manager" class="com.netease.yxguard.server.service.ServiceManager">
+        <constructor-arg ref="config"/>
+    </bean>
+
+</beans>
